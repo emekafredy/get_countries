@@ -1,12 +1,14 @@
-
-export const fetchCountriesAPI = async () => {
+export const fetchCountriesAPI = async (
+  region?: string,
+) => {
   try {
-    const response = await fetch(`https://restcountries.com/v3.1/all`);
+    const endpoint = (region && region !== "Filter by Region") ? `region/${region}` : 'all';
+    const response = await fetch(`https://restcountries.com/v3.1/${endpoint}`);
     const countries = await response.json();                       
 
     return countries
   } catch (err) {
-    throw new Error('Please try again');
+    return [];
   }
 };
 
@@ -17,6 +19,6 @@ export const fetchCountryAPI = async (name: string) => {
 
     return country
   } catch (err) {
-    throw new Error('Please try again');
+    return {};
   }
 };

@@ -1,5 +1,15 @@
+import { FC } from "react";
+import { ISearchProps } from "../../interface";
 
-export const Search = () => {
+export const Search:FC<ISearchProps> = ({
+  name,
+  setName
+}) => {
+  const handleChange = (e: any) => {
+    e.preventDefault()
+    setName(e.target.value);
+  }
+
   return (
     <div className="
       xs:mb-12
@@ -41,6 +51,8 @@ export const Search = () => {
         type="text"
         id="search"
         placeholder="Search for a country..."
+        value={name}
+        onChange={(e) => handleChange(e)}
       /> 
     </div>
   )

@@ -33,7 +33,6 @@ export interface ISelectProps {
   }[];
   selected: string;
   setSelected: React.Dispatch<React.SetStateAction<string>>;
-  handleTaskStatusUpdate?: (change: string, status: string) => void;
 }
 
 export type Borders = {name: string, symbol: string}[];
@@ -41,4 +40,9 @@ export type Borders = {name: string, symbol: string}[];
 export interface ICountryDetailsProps {
   country: ICountryProps;
   borders: Borders
+}
+
+export interface ISearchProps {
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
 }

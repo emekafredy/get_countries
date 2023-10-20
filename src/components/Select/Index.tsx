@@ -37,7 +37,7 @@ export const Select:FC<ISelectProps> = ({
 
       <ul
         className={`bg-white-100 dark:bg-dark-blue-100 rounded shadow-md overflow-hidden transition-all duration-500 ${
-          open ? "mt-4 max-h-56 absolute xs:w-[90%] sm:w-[47%] md:w-[35%] lg:w-[32%] xl:w-64" : "h-0"
+          open ? "mt-4 max-h-64 absolute xs:w-[90%] sm:w-[47%] md:w-[35%] lg:w-[32%] xl:w-64" : "h-0"
         } `}
       >
         {optionsData?.map((data) => {

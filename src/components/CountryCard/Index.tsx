@@ -30,7 +30,7 @@ export const CountryCard:FC<ICountryCardProps> = ({
           </p>
           <p className="text-dark-blue-100 text-sm">
             <span className="font-bold dark:text-white-100">Capital:</span>
-            {' '} <span className="font-light dark:text-gray-100">  {country.capital[0]} </span>
+            {' '} <span className="font-light dark:text-gray-100">  {country?.capital?.[0]} </span>
           </p>
         </div>
     </div>

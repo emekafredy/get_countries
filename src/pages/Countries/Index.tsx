@@ -7,8 +7,14 @@ import { regions } from "../../data/regions";
 import { Loading } from "../../components/Loading/Index";
 
 export const Countries = () => {
-  const [selectedRegion, setSelectedRegion] = useState<string>("Filter by Region");
-  const {loading, countries} = useFetchCountries();
+  const [name, setName] = useState<string>("");
+
+  const {
+    loading,
+    countries,
+    region,
+    setRegion
+  } = useFetchCountries();
 
   return (
     <>
@@ -33,12 +39,15 @@ export const Countries = () => {
                 py-5
                 pb-12"
             >
-              <Search />
+              <Search
+                name={name}
+                setName={setName}
+              />
 
               <Select
                 optionsData={regions}
-                selected={selectedRegion}
-                setSelected={setSelectedRegion}
+                selected={region}
+                setSelected={setRegion}
               />
             </div>
     
