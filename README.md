@@ -14,8 +14,8 @@
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Link](https://github.com/emekafredy/get_countries)
+- Live Site URL: [Link](https://get-countries.vercel.app/countries)
 
 ## My process
 
