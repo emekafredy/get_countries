@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { useFetchCountries } from "../../hooks/useFetchCountries";
 import { CountryCard } from "../../components/CountryCard/Index";
 import { Search } from "../../components/Search/Index";
 import { Select } from "../../components/Select/Index";
 import { regions } from "../../data/regions";
 import { Loading } from "../../components/Loading/Index";
+import { useSearchCountries } from "../../hooks/useSearchCountries";
 
 export const Countries = () => {
-  const [name, setName] = useState<string>("");
-
   const {
     loading,
     countries,
@@ -16,9 +14,18 @@ export const Countries = () => {
     setRegion
   } = useFetchCountries();
 
+  const {
+    loading: resLoading,
+    result,
+    name,
+    setName
+  } = useSearchCountries();
+
+  const displayedResult = result.length > 0 ? result : countries;
+
   return (
     <>
-      {loading ? (
+      {(loading || resLoading) ? (
         <Loading />
       ) : (
         <div
@@ -53,7 +60,7 @@ export const Countries = () => {
     
             <div className="xs:w-[90%] sm:w-[68%] md:w-full m-auto grid xs:grid-cols-1
               md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 md:gap-16 lg:gap-4 xl:gap-8">
-              {countries?.map((country) => {
+              {displayedResult?.map((country) => {
                 return (
                   <CountryCard
                     key={country?.area}

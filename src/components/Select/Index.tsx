@@ -7,7 +7,6 @@ export const Select:FC<ISelectProps> = ({
   optionsData,
   selected,
   setSelected,
-  // handleTaskStatusUpdate
 }) => {
   const [open, setOpen] = useState(false);
 

@@ -8,7 +8,7 @@ export const formatAndSeparateNumber = (x: number) => {
 }
 
 export const formatCurrenciesResponse = (currencies: any): {name: string, symbol: string}[] => {
-  return currencies?.length ? Object.entries(currencies)?.map((e: any) => e[1]) : [];
+  return currencies ? Object.entries(currencies)?.map((e: any) => e[1]) : [];
 };
 
 export const getBorderingCountries = async (borders: string[]): Promise<Borders> => {

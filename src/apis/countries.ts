@@ -15,10 +15,25 @@ export const fetchCountriesAPI = async (
 export const fetchCountryAPI = async (name: string) => {
   try {
     const response = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`);
-    const country = await response.json();                      
+    const country = await response.json();
 
     return country
   } catch (err) {
     return {};
+  }
+};
+
+export const searchCountriesAPI = async (
+  name?: string,
+) => {
+  try {
+    const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
+    const countries = await response.json(); 
+    
+    if (!countries.length) return []
+
+    return countries
+  } catch (err) {
+    return [];
   }
 };
